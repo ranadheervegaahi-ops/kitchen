@@ -15,6 +15,54 @@
 
 // module.exports = router;
 
+// const router = require("express").Router();
+
+// const {
+//   createMyOrder,
+//   getMyOrders,
+//   getMyOrder,
+//   cancelCustomerOrder,
+// } = require("../../controllers/customerOrderController");
+
+// const {
+//   getCustomerSlots,
+// } = require("../../controllers/preorderSchedule.controller");
+
+// const validate = require("../../Middleware/validationMiddleware");
+
+// const {
+//   createCustomerOrderValidator,
+// } = require("../../validators/orderValidator");
+
+// // Same authentication middleware used by customer routes
+// const customerAuth = require("../../Middleware/customerAuthMiddleware");
+
+// // Slots route must stay above "/:id"
+// router.get("/slots", customerAuth, getCustomerSlots);
+
+// // Create a customer order
+// router.post(
+//   "/",
+//   customerAuth,
+//   createCustomerOrderValidator,
+//   validate,
+//   createMyOrder
+// );
+
+// // Get all orders belonging to the logged-in customer
+// router.get("/", customerAuth, getMyOrders);
+
+// // Cancel an order belonging to the logged-in customer
+// router.post(
+//   "/:id/cancel",
+//   customerAuth,
+//   cancelCustomerOrder
+// );
+
+// // Get one order by ID
+// router.get("/:id", customerAuth, getMyOrder);
+
+// module.exports = router;
 const router = require("express").Router();
 
 const {
@@ -26,7 +74,11 @@ const {
 
 const {
   getCustomerSlots,
+  getCustomerDays, // NEW
 } = require("../../controllers/preorderSchedule.controller");
+
+// NEW
+const { orderingStatusHandler } = require("../../utils/orderingGate");
 
 const validate = require("../../Middleware/validationMiddleware");
 
@@ -37,8 +89,16 @@ const {
 // Same authentication middleware used by customer routes
 const customerAuth = require("../../Middleware/customerAuthMiddleware");
 
-// Slots route must stay above "/:id"
+// Fixed routes must stay above "/:id", otherwise "slots" is read as an order id
+
+// NEW: pre-order date chips (available / full / closed + message)
+router.get("/slot-days", customerAuth, getCustomerDays);
+
+// Pre-order time slots of one date (full / blocked slots come back disabled + message)
 router.get("/slots", customerAuth, getCustomerSlots);
+
+// NEW: normal (immediate) orders: is the store accepting orders right now?
+router.get("/ordering-status", customerAuth, orderingStatusHandler);
 
 // Create a customer order
 router.post(
