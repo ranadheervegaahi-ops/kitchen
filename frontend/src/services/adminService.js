@@ -82,7 +82,7 @@
 
 // export const getAuditLogs = (params) => api.get('/admin/audit-logs', { params })
 import api from './api'
-
+export const deleteCategory = (id) => api.delete(`/admin/categories/${id}`)
 export const getCategories = (params) => api.get('/admin/categories', { params })
 export const getCategory = (id) => api.get(`/admin/categories/${id}`)
 export const createCategory = (data) => {
@@ -96,7 +96,7 @@ export const updateCategory = (id, data) => {
   return api.put(`/admin/categories/${id}`, fd)
 }
 export const updateCategoryStatus = (id, status) => api.patch(`/admin/categories/${id}/status`, { status })
-export const deleteCategory = (id) => api.delete(`/admin/categories/${id}`)
+// export const deleteCategory = (id) => api.delete(`/admin/categories/${id}`)
 
 export const getProducts = (params) => api.get('/admin/products', { params })
 export const getProduct = (id) => api.get(`/admin/products/${id}`)
