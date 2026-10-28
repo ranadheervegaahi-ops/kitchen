@@ -1,0 +1,363 @@
+
+/* ================================
+   HUNDI PAGE
+================================ */
+
+.hundi-page {
+  width: 100%;
+}
+
+.hundi-add-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  white-space: nowrap;
+}
+
+/* Members badge in table */
+
+.hundi-member-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 11px;
+  border: 1px solid #e0e7ff;
+  border-radius: 9px;
+  background: #f5f7ff;
+  color: #4338ca;
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.hundi-price{
+  color: #15803d;
+  font-weight: 700;
+  white-space: nowrap;
+}
+/* ================================
+   MODAL FORM
+================================ */
+
+.hundi-form {
+  gap: 18px;
+}
+
+.hundi-form .form-group {
+  min-width: 0;
+}
+
+.hundi-form .form-label {
+  display: block;
+  margin-bottom: 8px;
+  color: #273449;
+  font-size: 13px;
+  font-weight: 650;
+}
+
+/* ================================
+   CUSTOM SELECT DROPDOWN
+================================ */
+
+.hundi-select-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-height: 54px;
+  border: 1px solid #d9e0ec;
+  border-radius: 13px;
+  background: #ffffff;
+  box-shadow: 0 2px 5px rgb(15 23 42 / 3%);
+  transition:
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    background 180ms ease;
+}
+
+.hundi-select-wrap:hover {
+  border-color: #a5b4fc;
+  background: #fcfcff;
+}
+
+.hundi-select-wrap:focus-within {
+  border-color: #6366f1;
+  box-shadow:
+    0 0 0 4px rgb(99 102 241 / 12%),
+    0 2px 5px rgb(15 23 42 / 3%);
+}
+
+.hundi-select-icon {
+  position: absolute;
+  left: 15px;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #6366f1;
+  pointer-events: none;
+}
+
+.hundi-select {
+  appearance: none;
+  -webkit-appearance: none;
+  display: block;
+  width: 100%;
+  min-width: 0;
+  min-height: 52px;
+  padding: 13px 45px 13px 46px;
+  border: none;
+  outline: none;
+  border-radius: 13px;
+  background: transparent;
+  color: #1e293b;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 550;
+  cursor: pointer;
+}
+
+.hundi-select:invalid {
+  color: #94a3b8;
+}
+
+.hundi-select:disabled {
+  cursor: not-allowed;
+  opacity: 0.65;
+}
+
+.hundi-select option {
+  padding: 12px;
+  background: #ffffff;
+  color: #1e293b;
+  font-size: 14px;
+}
+
+.hundi-select option:disabled {
+  color: #94a3b8;
+}
+
+.hundi-select-arrow {
+  position: absolute;
+  right: 15px;
+  color: #64748b;
+  pointer-events: none;
+  transition: transform 180ms ease;
+}
+
+.hundi-select-wrap:focus-within .hundi-select-arrow {
+  color: #4f46e5;
+  transform: rotate(180deg);
+}
+
+/* ================================
+   DROPDOWN HELPER TEXT
+================================ */
+
+.hundi-help {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  margin-top: 9px;
+  color: #64748b;
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+.hundi-help svg {
+  flex-shrink: 0;
+  margin-top: 2px;
+  color: #818cf8;
+}
+
+/* ================================
+   SELECTED MEMBER PREVIEW
+================================ */
+
+.hundi-selection-preview {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  margin-top: 13px;
+  padding: 12px 14px;
+  border: 1px solid #e0e7ff;
+  border-radius: 12px;
+  background: linear-gradient(
+    135deg,
+    #f5f7ff 0%,
+    #fafaff 100%
+  );
+  animation: hundi-preview-in 180ms ease-out;
+}
+
+.hundi-preview-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 37px;
+  height: 37px;
+  flex-shrink: 0;
+  border-radius: 10px;
+  background: #e0e7ff;
+  color: #4338ca;
+}
+
+.hundi-selection-preview > span:nth-child(2) {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+}
+
+.hundi-selection-preview strong {
+  color: #312e81;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.hundi-selection-preview small {
+  color: #64748b;
+  font-size: 11px;
+}
+
+.hundi-preview-check {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 23px;
+  height: 23px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: #dcfce7;
+  color: #15803d;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+@keyframes hundi-preview-in {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ================================
+   PRICE INPUT
+================================ */
+
+.hundi-input-with-icon {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.hundi-input-with-icon > svg {
+  position: absolute;
+  left: 13px;
+  z-index: 1;
+  color: #64748b;
+  pointer-events: none;
+}
+
+.hundi-input-with-icon .form-input {
+  width: 100%;
+  min-width: 0;
+  padding-left: 37px;
+}
+
+/* ================================
+   AVAILABILITY PREVIEW
+================================ */
+
+.hundi-status-preview {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 12px;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  background: #f8fafc;
+}
+
+.hundi-status-preview > span:last-child {
+  color: #64748b;
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+/* ================================
+   MODAL ACTIONS
+================================ */
+
+.hundi-form .modal-form__actions {
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding-top: 5px;
+}
+
+.hundi-form .modal-form__actions .btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.hundi-form .modal-form__actions .btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.65;
+}
+
+/* ================================
+   RESPONSIVE
+================================ */
+
+@media (max-width: 600px) {
+  .hundi-page .page__header {
+    align-items: flex-start;
+    gap: 14px;
+  }
+
+  .hundi-add-btn {
+    padding: 9px 12px;
+    font-size: 12px;
+  }
+
+  .hundi-form .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .hundi-select-wrap {
+    min-height: 50px;
+  }
+
+  .hundi-select {
+    min-height: 48px;
+    font-size: 13px;
+  }
+
+  .hundi-form .modal-form__actions {
+    width: 100%;
+  }
+
+  .hundi-form .modal-form__actions .btn {
+    flex: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hundi-select-wrap,
+  .hundi-select-arrow,
+  .hundi-selection-preview {
+    transition: none;
+    animation: none;
+  }
+}
