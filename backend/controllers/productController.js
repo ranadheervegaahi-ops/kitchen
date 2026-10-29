@@ -94,6 +94,9 @@ const createProduct = async (req, res) => {
     return error(res, "Invalid or inactive category.", 422, "INVALID_CATEGORY");
 
   const image_url = req.file ? `/uploads/${req.file.filename}` : undefined;
+  // const image_url = req.file
+  // ? `/uploads/products/${req.file.filename}`
+  // : undefined;
   const product = await Product.create({
     name: name.trim(),
     category_id,
@@ -150,6 +153,9 @@ const updateProduct = async (req, res) => {
       min_prep_hours === "" ? 0 : Number(min_prep_hours);
   }
   if (req.file) product.image_url = `/uploads/${req.file.filename}`;
+//   if (req.file) {
+//   product.image_url = `/uploads/products/${req.file.filename}`;
+// }
   await product.save();
 
   await createAudit({ admin_id: req.admin._id, action: AUDIT_ACTIONS.PRODUCT_UPDATED, entity_type: "Product", entity_id: product._id, old_value, new_value: product, ip_address: req.ip });

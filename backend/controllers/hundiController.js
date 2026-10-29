@@ -341,6 +341,7 @@ const { toFixed2 } = require("../utils/money");
 const { getPreorderInfo, calculatePricing } = require("./preorder.js");
 const UPLOADS_ROOT = path.join(__dirname, "..", "uploads");
 // Delete an image file inside /uploads (safe: ignores anything outside it).
+
 const removeImageFile = (imageUrl) => {
   if (!imageUrl || typeof imageUrl !== "string") return;
   if (!imageUrl.startsWith("/uploads/")) return;
